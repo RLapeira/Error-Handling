@@ -15,8 +15,18 @@ string operation = ReadLine()!.ToUpperInvariant();
 try
 {
     var calculator = new Calculator();
-    int result = calculator.Calculate(number1, number2, null!); // si ponemos ! detrás del null, VS ignora el error
+    int result = calculator.Calculate(number1, number2, operation);
     DisplayResult(result);
+}
+catch (ArgumentNullException ex)
+{
+    // Log.error(ex);
+    WriteLine($"Operation was not provided. {ex}");
+}
+catch (ArgumentOutOfRangeException ex)
+{
+    // Log.error(ex);
+    WriteLine($"Operation is not supported. {ex}");
 }
 catch (Exception ex)
 {
