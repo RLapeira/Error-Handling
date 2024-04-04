@@ -23,7 +23,8 @@ namespace CursoManejoErrores
                 {
                     Console.WriteLine("...logging...");
                     // Log.Error(ex);
-                    throw;
+                    // throw;
+                    throw new ArithmeticException("An error occured during calculation.", ex);
                 }
             }
             else
