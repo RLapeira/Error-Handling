@@ -10,6 +10,16 @@ namespace CursoManejoErrores
     {
         public int Calculate(int number1, int number2, string operation)
         {
+            /*if (operation is null)
+            {
+                throw new ArgumentNullException(nameof(operation));
+            }*/
+
+            string nonNullOperation =
+                operation ?? throw new ArgumentNullException(nameof(operation));
+
+            // el ?? hace lo que hay a la derecha si lo de la izquierda es null
+
             if (operation == "/")
             {
                 return Divide(number1, number2);
@@ -18,8 +28,6 @@ namespace CursoManejoErrores
             {
                 throw new ArgumentOutOfRangeException(nameof(operation),
                     "The mathematical operator is not supported.");
-                //Console.WriteLine("Unknown operation.");
-                //return 0;
             }
         }
 

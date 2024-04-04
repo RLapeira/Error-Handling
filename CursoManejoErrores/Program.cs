@@ -15,7 +15,7 @@ string operation = ReadLine()!.ToUpperInvariant();
 try
 {
     var calculator = new Calculator();
-    int result = calculator.Calculate(number1, number2, operation);
+    int result = calculator.Calculate(number1, number2, null!); // si ponemos ! detrás del null, VS ignora el error
     DisplayResult(result);
 }
 catch (Exception ex)
