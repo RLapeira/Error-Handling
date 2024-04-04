@@ -3,6 +3,9 @@ using static System.Console;
 
 // Note: Additional input validation omitted for brevity
 
+AppDomain currentAppDomain = AppDomain.CurrentDomain;
+currentAppDomain.UnhandledException += new UnhandledExceptionEventHandler(HandleException);
+
 WriteLine("Enter first number");
 int number1 = int.Parse(ReadLine()!);
 
@@ -47,3 +50,7 @@ ReadLine();
 
 
 static void DisplayResult(int result) => WriteLine($"Result is: {result}");
+static void HandleException(object sender, UnhandledExceptionEventArgs e)
+{
+    WriteLine($"Sorry there was a problem and we need to close. Details: {e.ExceptionObject}");
+}
